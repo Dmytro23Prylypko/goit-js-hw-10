@@ -69,6 +69,7 @@ let intervalId;
 
 function handleStartClick(event) {
   clearInterval(intervalId);
+  dateInput.disabled = true;
   event.currentTarget.disabled = true;
   let time = userSelectedDate.getTime() - Date.now();
   intervalId = setInterval(() => {
@@ -80,6 +81,8 @@ function handleStartClick(event) {
       hoursElement.textContent = addLeadingZero(timeObj.hours);
       minutesElement.textContent = addLeadingZero(timeObj.minutes);
       secondsEleent.textContent = addLeadingZero(timeObj.seconds);
+    } else {
+      dateInput.disabled = false;
     }
   }, 1000);
 }
